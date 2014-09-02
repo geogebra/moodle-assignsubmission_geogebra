@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="mod/assign/submission/geogebra/db" VERSION="20140608" COMMENT="XMLDB file for Moodle mod/assign/submission/geogebra"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../../../lib/xmldb/xmldb.xsd"
+        >
+    <TABLES>
+        <TABLE NAME="assignsubmission_geogebra" COMMENT="Default comment for assignsubmission_geogebra, please edit me">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="assignment" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="submission" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false"/>
+                <FIELD NAME="ggbparameters" TYPE="text" NOTNULL="false" SEQUENCE="false"
+                       COMMENT="The parameters from deployggb including the base64 encoded file"/>
+                <FIELD NAME="ggbviews" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="The views used by the applet"/>
+                <FIELD NAME="ggbcodebaseversion" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT="Codebaseversion"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="assignment" TYPE="foreign" FIELDS="assignment" REFTABLE="assign" REFFIELDS="id"
+                     COMMENT="The assignment instance this GeoGebra submission relates to."/>
+                <KEY NAME="changemeid" TYPE="foreign" FIELDS="submission" REFTABLE="assign_submission" REFFIELDS="id"
+                     COMMENT="The submission this geogebra submission relates to."/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
