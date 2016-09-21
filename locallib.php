@@ -500,7 +500,7 @@ HTML;
             $applet .= <<<EOD
         ggbloaded = false;
         ggbdisplaytoggle = Y.one('#applet_container1').ancestor().siblings().pop().get('children').shift();
-        if (ggbdisplaytoggle.hasAttribute('src')) {
+        if ((typeof ggbdisplaytoggle != 'undefined') && ggbdisplaytoggle.hasAttribute('src')) {
             ggbdisplaytoggle.on('click', function () {
 EOD;
             $applet .= 'applet1 = new GGBApplet(';
