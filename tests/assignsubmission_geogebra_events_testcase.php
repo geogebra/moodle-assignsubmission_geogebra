@@ -47,7 +47,7 @@ class assignsubmission_geogebra_events_testcase extends advanced_testcase {
     /**
      * Setup all the various parts of an assignment activity including creating an geogebra submission.
      */
-    protected function setUp() {
+    protected function setUp(): void {
         $this->user = $this->getDataGenerator()->create_user();
         $this->course = $this->getDataGenerator()->create_course();
         /* @var $generator mod_assign_generator */
